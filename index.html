@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moch Fawwaz Almunawar — RPL Developer</title>
+<title>Moch Fawwaz Al Munawar — Junior Web Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -12,14 +12,18 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">FwzzzDev</div>
-  <ul class="nav-links">
-    <li><a href="#about">Tentang</a></li>
-    <li><a href="#projects">Proyek</a></li>
-    <li><a href="#experience">Pengalaman</a></li>
-    <li><a href="#achievements">Prestasi</a></li>
-    <li><a href="#contact">Kontak</a></li>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" class="nav-link-item">Tentang</a></li>
+    <li><a href="#projects" class="nav-link-item">Proyek</a></li>
+    <li><a href="#experience" class="nav-link-item">Pengalaman</a></li>
+    <li><a href="#achievements" class="nav-link-item">Prestasi</a></li>
+    <li><a href="#contact" class="nav-link-item">Kontak</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-overlay" id="navOverlay"></div>
 
 <!-- HERO -->
 <section id="hero">
@@ -27,7 +31,7 @@
 
   <div class="hero-left">
     <div class="hero-tag fade-up">✦ Available for Work</div>
-    <h1 class="hero-name fade-up delay-1">Moch<br><span>Fawwaz</span><br>Almunawar</h1>
+    <h1 class="hero-name fade-up delay-1">Moch<br><span>Fawwaz</span><br>Al Munawar</h1>
     <p class="hero-title fade-up delay-2">Software Developer · Fresh Graduate</p>
     <p class="hero-desc fade-up delay-3">
       Lulusan SMK jurusan Rekayasa Perangkat Lunak dengan passion tinggi di bidang pengembangan perangkat lunak. Terbiasa membangun solusi berbasis web dan aplikasi dengan pendekatan terstruktur dan berorientasi hasil.
@@ -43,7 +47,7 @@
       <div class="profile-avatar">
         <img src="assets/fawwaz.png" alt="Foto Fawwaz" class="profile-avatar-img">
       </div>
-      <div class="profile-name">Moch Fawwaz Almunawar</div>
+      <div class="profile-name">Moch Fawwaz Al Munawar</div>
       <div class="profile-sub">@fwxxzz</div>
       <div class="profile-info">
         <div class="profile-row">
@@ -52,7 +56,7 @@
         </div>
         <div class="profile-row">
           <span class="label">Jurusan</span>
-          <span class="val">Rekayasa Perangkat Lunak</span>
+          <span class="val">Software Engineering</span>
         </div>
         <div class="profile-row">
           <span class="label">Sekolah</span>
@@ -64,7 +68,7 @@
         </div>
         <div class="profile-row">
           <span class="label">Lokasi</span>
-          <span class="val">Jakarta — Indonesia</span>
+          <span class="val">Tasikmalaya, west java — Indonesia</span>
         </div>
       </div>
     </div>
@@ -199,7 +203,7 @@
       <div class="project-body">
         <div class="project-type" style="color: var(--gold);">Web Application</div>
         <div class="project-title">Installment Car Platform</div>
-        <p class="project-desc">adalah layanan atau aplikasi web digital yang memfasilitasi pembelian mobil dengan metode pembayaran kredit atau dicicil. Melalui platform ini, konsumen bisa memilih kendaraan, mengajukan pembiayaan, dan membayar angsuran bulanan secara bertahap</p>
+        <p class="project-desc">project lomba saya yang berguna untuk kehidupan nyata yaitu layanan atau aplikasi web digital yang memfasilitasi pembelian mobil dengan metode pembayaran kredit atau dicicil. Melalui platform ini, konsumen bisa memilih kendaraan, mengajukan pembiayaan, dan membayar angsuran bulanan secara bertahap</p>
         <div class="project-stack">
           <span class="stack-pill">PHP</span>
           <span class="stack-pill">Laravel</span>
@@ -224,7 +228,7 @@
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
-          <div class="timeline-date">Desember 2025 — Maret 2026 (4 bulan)</div>
+          <div class="timeline-date">Desember 2025 — April 2026</div>
           <div class="timeline-role">Praktik Kerja Lapangan (PKL)</div>
           <div class="timeline-org">Perusahaan Refize Studio</div>
           <p class="timeline-desc">Melaksanakan PKL di bidang pengembangan web. Terlibat dalam proyek internal, maintenance sistem, dan dokumentasi teknis.</p>
@@ -314,7 +318,7 @@
     <h2 class="section-title">Ayo<br>terhubung!</h2>
     <div class="section-divider"></div>
     <p style="font-size: 1rem; line-height: 1.8; color: var(--ink-soft); max-width: 480px;">
-      Saya terbuka untuk peluang kerja, kolaborasi proyek, maupun diskusi seputar pengembangan software. Jangan ragu untuk menghubungi saya!
+      Saya terbuka untuk peluang kerja dan Jangan ragu untuk menghubungi saya!
     </p>
 
     <div class="contact-grid">
@@ -349,7 +353,7 @@
       </a>
 
       <!-- LINKEDIN -->
-      <a href="https://linkedin.com/in/Moch Fawwaz Al munawar" class="contact-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/moch-fawwaz-al-munawar-a457a9409?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="contact-card" target="_blank" rel="noopener noreferrer">
         <div class="contact-icon contact-icon--linkedin">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
             <rect width="24" height="24" rx="4" fill="#0A66C2"/>
@@ -360,7 +364,7 @@
         </div>
         <div>
           <div class="contact-label">LinkedIn</div>
-          <div class="contact-val">linkedin.com/in/Moch Fawwaz Almunawar</div>
+          <div class="contact-val">linkedin.com/in/Moch Fawwaz Al Munawar</div>
         </div>
       </a>
 
@@ -384,8 +388,29 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>Created by <span>Moch Fawwaz Almunawar</span> — 2026</p>
+  <p>Created by <span>Moch Fawwaz Al Munawar</span> — 2026</p>
 </footer>
 
+<script>
+const hamburger = document.getElementById('navHamburger');
+const navLinks  = document.getElementById('navLinks');
+const overlay   = document.getElementById('navOverlay');
+
+function toggleMenu(open) {
+  const isOpen = open !== undefined ? open : !navLinks.classList.contains('open');
+  navLinks.classList.toggle('open', isOpen);
+  hamburger.classList.toggle('active', isOpen);
+  overlay.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+hamburger.addEventListener('click', () => toggleMenu());
+overlay.addEventListener('click', () => toggleMenu(false));
+
+document.querySelectorAll('.nav-link-item').forEach(link => {
+  link.addEventListener('click', () => toggleMenu(false));
+});
+</script>
 </body>
 </html>

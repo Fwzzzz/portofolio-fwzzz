@@ -410,14 +410,183 @@ footer span { color: var(--accent); }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 
-/* ---- RESPONSIVE ---- */
+/* =============================================
+   HAMBURGER MENU
+   ============================================= */
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer;
+  padding: 4px; z-index: 200;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 98;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+  opacity: 0; transition: opacity 0.3s;
+}
+.nav-mobile-overlay.active { opacity: 1; }
+
+/* =============================================
+   RESPONSIVE — TABLET (max 900px)
+   ============================================= */
+@media (max-width: 900px) {
+  /* Experience grid */
+  #experience > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (max 768px)
+   ============================================= */
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  #hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 2.5rem; }
-  .hero-bg-text { font-size: 40vw; }
+
+  /* ---- NAV ---- */
+  nav {
+    padding: 0.9rem 1.25rem;
+    position: fixed;
+  }
+  .nav-hamburger { display: flex; }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0; right: 0;
+    width: min(280px, 80vw);
+    height: 100dvh;
+    background: var(--paper);
+    z-index: 199;
+    padding: 5rem 2rem 2rem;
+    gap: 0;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    list-style: none;
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-mobile-overlay { display: block; pointer-events: none; }
+  .nav-mobile-overlay.active { pointer-events: all; }
+
+  .nav-links li { border-bottom: 1px solid var(--border); }
+  .nav-links li:first-child { border-top: 1px solid var(--border); }
+  .nav-links a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
+  .nav-links a:hover { color: var(--accent); padding-left: 0.5rem; }
+
+  /* ---- HERO ---- */
+  #hero {
+    grid-template-columns: 1fr;
+    padding: 5rem 1.25rem 2.5rem;
+    gap: 2rem;
+    min-height: auto;
+  }
+  .hero-bg-text { font-size: 38vw; opacity: 0.04; }
   .hero-right { order: -1; }
-  section { padding: 4rem 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .contact-grid { grid-template-columns: 1fr; }
+
+  .hero-name { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+  .hero-title { font-size: 1.05rem; }
+  .hero-desc { font-size: 0.9rem; }
+
+  .profile-card { padding: 1.5rem; }
+  .profile-avatar { width: 72px; height: 72px; font-size: 1.8rem; }
+
+  .hero-cta-group { flex-direction: column; gap: 0.75rem; }
+  .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 3rem 1.25rem; }
+
+  .section-title { font-size: clamp(1.6rem, 7vw, 2.5rem); }
+
+  /* ---- ABOUT ---- */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-text p { font-size: 0.92rem; }
+  .skills-grid { gap: 0.75rem; }
+  .skill-name { font-size: 0.78rem; }
+  .tech-tags { gap: 0.4rem; }
+  .tech-tag { font-size: 0.68rem; padding: 0.25rem 0.6rem; }
+
+  /* ---- PROJECTS ---- */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .project-thumb { height: 160px; }
+  .project-title { font-size: 1rem; }
+  .project-desc { font-size: 0.83rem; }
+
+  /* ---- EXPERIENCE ---- */
+  #experience > div[style] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .timeline { padding-left: 1.75rem; }
+  .timeline-role { font-size: 0.92rem; }
+  .timeline-desc { font-size: 0.83rem; }
+
+  /* ---- ACHIEVEMENTS ---- */
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .achievement-card { padding: 1.25rem; }
+  .achievement-title { font-size: 0.88rem; }
+
+  /* ---- CONTACT ---- */
+  .contact-wrap { max-width: 100%; }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .contact-card {
+    padding: 1rem 1.1rem;
+    gap: 0.85rem;
+  }
+  .contact-val { font-size: 0.8rem; word-break: break-all; }
+
+  /* ---- FOOTER ---- */
+  footer { font-size: 0.7rem; padding: 1.5rem 1.25rem; }
+}
+
+/* =============================================
+   RESPONSIVE — SMALL MOBILE (max 400px)
+   ============================================= */
+@media (max-width: 400px) {
+  .hero-name { font-size: 2rem; }
+  .profile-row { flex-wrap: wrap; gap: 0.3rem; }
+  .profile-row .label { min-width: 70px; }
+  .contact-val { font-size: 0.75rem; }
 }
