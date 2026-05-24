@@ -133,6 +133,13 @@ nav {
   display: flex; align-items: center; justify-content: center;
   font-size: 2.2rem; font-weight: 800; color: #fff;
   margin-bottom: 1.2rem; letter-spacing: -0.02em;
+  overflow: hidden;
+}
+.profile-avatar-img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  border-radius: 50%;
+  display: block;
 }
 .profile-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
 .profile-sub { font-size: 0.82rem; color: var(--ink-muted); font-family: var(--font-mono); margin-bottom: 1.5rem; }
@@ -219,6 +226,21 @@ section { padding: 5rem 3rem; }
   height: 180px; display: flex; align-items: center; justify-content: center;
   font-size: 3.5rem; position: relative; overflow: hidden;
 }
+/* thumbnail pakai gambar */
+.project-thumb--img {
+  padding: 0;
+}
+.project-thumb-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 1.25rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.project-card:hover .project-thumb-img {
+  transform: scale(1.04);
+}
 .project-body { padding: 1.5rem; }
 .project-type {
   font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
@@ -240,6 +262,47 @@ section { padding: 5rem 3rem; }
 }
 .status-done { background: var(--green-light); color: var(--green); }
 .status-wip { background: var(--gold-light); color: var(--gold); }
+
+/* ---- LINKED PROJECT CARD ---- */
+a.project-card--linked {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a.project-card--linked:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  border-color: var(--accent);
+}
+a.project-card--linked:hover .project-title {
+  color: var(--accent);
+}
+a.project-card--linked .project-title {
+  transition: color 0.2s;
+}
+.project-github-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  background: rgba(10,10,10,0.82);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.85rem;
+  border-radius: 2rem;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+a.project-card--linked:hover .project-github-badge {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
 /* ---- EXPERIENCE ---- */
 #experience { background: var(--paper-warm); }
@@ -314,10 +377,15 @@ section { padding: 5rem 3rem; }
 }
 .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .contact-icon {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--accent-light); color: var(--accent);
+  width: 44px; height: 44px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
+  flex-shrink: 0;
+  background: transparent;
+  transition: transform 0.2s, filter 0.2s;
+}
+.contact-card:hover .contact-icon {
+  transform: scale(1.1);
+  filter: brightness(1.1);
 }
 .contact-label { font-size: 0.75rem; color: var(--ink-muted); margin-bottom: 0.1rem; font-family: var(--font-mono); }
 .contact-val { font-size: 0.9rem; font-weight: 600; }
